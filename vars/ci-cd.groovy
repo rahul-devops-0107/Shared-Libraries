@@ -13,7 +13,7 @@ def tomcat-deployment(jobname,ip_address,context) // Here we are using three var
     sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war vagrant@${ip_address}:var/lib/tomcat10/webapps/${context}.war"
 }
 
-def testing-run()
+def testing-run(jobname)
 {
     sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
