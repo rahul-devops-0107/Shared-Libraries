@@ -1,4 +1,4 @@
-def git-checkout(repo)
+def Git-checkout(repo)
 {
     git "https://github.com/IntelliqDevops/${repo}.git" // We are replacing the repo name so as to reuse it in multiple pipelines
 }
@@ -13,12 +13,12 @@ def Tomcat-Deployment(jobname,ip_address,context) // Here we are using three var
     sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war vagrant@${ip_address}:var/lib/tomcat10/webapps/${context}.war"
 }
 
-def testing-run()
+def Testing-run()
 {
     sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
 
-def email-notification()
+def Email-notification()
 {
     mail bcc: "", body: "${stage_error}.getMessage()", cc: "", from: "", replyTo: "", subject: "${subject_body}", to: "rahul.devops.0107@gmail.com"
     exit(1)
