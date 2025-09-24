@@ -18,8 +18,8 @@ def testing-run()
     sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
 
-def email-notification()
+def email-notification(stage_error,subject_body,email)
 {
-    mail bcc: "", body: "${stage_error}.getMessage()", cc: "", from: "", replyTo: "", subject: "${subject_body}", to: "rahul.devops.0107@gmail.com"
+    mail bcc: "", body: "${stage_error}.getMessage()", cc: "", from: "", replyTo: "", subject: "${subject_body}", to: "${email}"
     exit(1)
 }
