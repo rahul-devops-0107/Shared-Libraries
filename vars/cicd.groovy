@@ -5,7 +5,7 @@ def GitCheckout(repo)
 
 def BuildArtifact()
 {
-    sh 'mv clean package' // We are not using any variables here because the command is common in every pipeline and "clean package" is used so as to reduce the memory consumption of jenkins server as it deletes previous build artifacts once the new build stage is trigerred
+    sh "mvn clean package" // We are not using any variables here because the command is common in every pipeline and "clean package" is used so as to reduce the memory consumption of jenkins server as it deletes previous build artifacts once the new build stage is trigerred
 }
 
 def TomcatDeployment(jobname,ip_address,context) // Here we are using three variables to reuse in different deployment stages as three variable change during the deployment stages
