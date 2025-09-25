@@ -10,7 +10,7 @@ def BuildArtifact()
 
 def TomcatDeployment(jobname,ip_address,context) // Here we are using three variables to reuse in different deployment stages as three variable change during the deployment stages
 {
-    sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war vagrant@${ip_address}:var/lib/tomcat10/webapps/${context}.war"
+    sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war vagrant@${ip_address}:var/lib/tomcat9/webapps/${context}.war"
 }
 
 def TestingRun(jobname)
